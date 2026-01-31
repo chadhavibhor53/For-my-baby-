@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Valentine's Day</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff4d6d, #ff8fa3);
+  color: white;
+  text-align: center;
+}
+.page { display:none; min-height:100vh; padding:40px 20px; }
+.active { display:block; }
+button {
+  padding:14px 28px;
+  font-size:18px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  color:#ff4d6d;
+}
+.gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+.gallery img {
+  width:100%;
+  border-radius:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page active" id="page1">
+<h1>Happy Valentine's Day</h1>
+<p>This is something special just for you.</p>
+<button onclick="nextPage(2)">Continue</button>
+</div>
+
+<div class="page" id="page2">
+<h1>For You</h1>
+<p>You make my days better and brighter.</p>
+<button onclick="nextPage(3)">Final Page</button>
+</div>
+
+<div class="page" id="page3">
+<h1>Click for a Surprise</h1>
+<button onclick="showSurprise()">Click Here</button>
+
+<div id="surprise" style="display:none;">
+<h2>Our Memories</h2>
+<div class="gallery">
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+</div>
+</div>
+
+</div>
+
+<script>
+function nextPage(n){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById('page'+n).classList.add('active');
+}
+function showSurprise(){
+ document.getElementById('surprise').style.display='block';
+}
+</script>
+
+</body>
+</html>
